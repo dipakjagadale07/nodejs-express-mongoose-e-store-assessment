@@ -13,7 +13,10 @@ exports.login = async (req, res) => {
             if (doesPasswordMatch) {
                 delete user.password;
                 res({
-                    token: jwt.sign(user.email, config.secretKey),
+                    token: jwt.sign({
+                        userId: user._id,
+                        email: user.email
+                    }, config.secretKey),
                     user: user
                 });
             } else {
@@ -21,9 +24,10 @@ exports.login = async (req, res) => {
             }
         }
     } catch (error) {
+        console.log("Error while login - ", error);
         res({
-            status: 500,
+            success: false,
             message: error
-        })
+        });
     }
 };

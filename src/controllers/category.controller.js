@@ -8,8 +8,8 @@ exports.getAllCategories = async (req, res) => {
         })
     } catch (error) {
         res({
-            status: 500,
-            message: error
-        })
+            success: false,
+            message: 'Error while fetching all Categories.'
+        });
     }
 };

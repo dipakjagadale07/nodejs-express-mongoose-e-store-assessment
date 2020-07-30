@@ -9,4 +9,16 @@ router.get('/', (req, res, next) => {
     });
 });
 
+router.get('/:category', (req, res, next) => {
+    product.getAllProductsByCategory(req, (result) => {
+        res.send(result);
+    });
+});
+
+router.post('/addtocart/:product', (req, res, next) => {
+    product.addToCart(req, (result) => {
+        res.send(result);
+    });
+});
+
 module.exports = router;
