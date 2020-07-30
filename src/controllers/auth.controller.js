@@ -13,8 +13,6 @@ exports.login = async (req, res) => {
             if (doesPasswordMatch) {
                 delete user.password;
                 res({
-                    status: 200,
-                    message: "Login successful",
                     token: jwt.sign(user.email, config.secretKey),
                     user: user
                 });
