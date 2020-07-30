@@ -14,14 +14,8 @@ const login = require('./src/routes/login.routes.js');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
-/* app.use(bodyParser.json());
-app.use((req, res, next) => {
-    if (typeof (req.body) == 'string') {
-        req.body = JSON.parse(req.body);
-    }
-    next();
-});
- */
+app.use(bodyParser.json());
+
 loadDB();
 loadUserData();
 

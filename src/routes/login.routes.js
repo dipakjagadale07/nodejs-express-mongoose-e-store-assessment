@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-const loginController = require('../controllers/login.controller.js');
+const auth = require('../controllers/auth.controller.js');
 
-router.post('/login', (req, res, next) => {
-    console.log("Inside routes");
-    loginController.login(req, (response) => {
-        res.send(response);
+router.post('/', (req, res, next) => {
+    auth.login(req, (result) => {
+        res.send(result);
     });
 });
 

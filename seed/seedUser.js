@@ -1,5 +1,5 @@
 const userModel = require('../src/models/user.model');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 module.exports = async () => {
     try {
@@ -9,7 +9,7 @@ module.exports = async () => {
                 await userModel.create({
                     firstName: "Dipak",
                     lastName: "Jagadale",
-                    email: "jagdale",
+                    email: "dipak@gmail.com",
                     password: password_hash
                 });
             }
