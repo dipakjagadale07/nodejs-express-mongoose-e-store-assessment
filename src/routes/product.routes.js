@@ -15,10 +15,4 @@ router.get('/:category', (req, res, next) => {
     });
 });
 
-router.post('/addtocart/:product', (req, res, next) => {
-    product.addToCart(req, (result) => {
-        res.send(result);
-    });
-});
-
 module.exports = router;
